@@ -1,14 +1,13 @@
 import re
 import math
 from collections import defaultdict
-
-lines = open("2023/02.in").read().splitlines()
+from aocd import data
 
 possible_sum = 0
 power_sum = 0
 available = {"red": 12, "green": 13, "blue": 14}
 
-for line in lines:
+for line in data.splitlines():
     game_id = int(re.search(r"\d+", line).group())
     game_possible = True
     maximums = defaultdict(int)
