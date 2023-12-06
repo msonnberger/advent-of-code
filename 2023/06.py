@@ -13,10 +13,11 @@ distances = list(map(int, distances))
 
 totals = [0] * len(times)
 
-for time, distance, i in zip(times, distances, range(len(times))):
-    for ms in range(1, time):
-        if ms * (time - ms) > distance:
-            totals[i] += 1
+for t, d, i in zip(times, distances, range(len(times))):
+    det = math.sqrt(t**2 - 4 * d)
+    x1 = math.ceil((-t + det) / -2)
+    x2 = math.floor((-t - det) / -2)
+    totals[i] = x2 - x1 + 1
 
 print(f"part 1: {math.prod(totals[:-1])}")
 print(f"part 2: {totals[-1]}")
