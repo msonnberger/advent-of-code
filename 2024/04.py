@@ -1,12 +1,7 @@
 from aocd import data
-from collections import defaultdict
+from util import parse_grid
 
-grid = defaultdict(lambda: ".")
-n, m = len(data.splitlines()), len(data.splitlines()[0])
-for i, line in enumerate(data.splitlines()):
-    for j, char in enumerate(line):
-        grid[complex(i, j)] = char
-
+grid, n, m = parse_grid(data)
 dirs = [1, 1j, -1, -1j, 1 + 1j, 1 - 1j, -1 + 1j, -1 - 1j]
 xmas_count = 0
 cross_count = 0
